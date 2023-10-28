@@ -4,7 +4,9 @@ const btn = document.querySelector('button');
 const speed = 500;
 //먼저 필요한 함수 가져오기
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', panelOpen);
+
+function panelOpen() {
 	new Anime(
 		topEl,
 		{ width: '100%' },
@@ -31,6 +33,7 @@ btn.addEventListener('click', () => {
 												callback: () => {
 													//new Anime(conEl, { opacity: 1 }, { duration: speed });
 													conEl.classList.add('on');
+													btn.classList.add('off');
 												},
 											}
 										);
@@ -43,4 +46,4 @@ btn.addEventListener('click', () => {
 			},
 		}
 	);
-});
+}

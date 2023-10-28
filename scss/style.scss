@@ -23,6 +23,12 @@ button {
 	margin-left: -75px;
 	margin-top: -20px;
 	cursor: pointer;
+	transition: opacity 0.5s;
+
+	&.off {
+		opacity: 0;
+		z-index: -1;
+	}
 }
 
 main {
@@ -71,9 +77,25 @@ main {
 		transform: rotateY(230deg);
 		transition: 1s;
 
+		span {
+			position: absolute;
+			top: 50px;
+			right: 0;
+			opacity: 0;
+			cursor: pointer;
+			transform: rotate(200deg);
+			transition: 0.5s 1s;
+		}
+
 		&.on {
 			opacity: 1;
 			transform: rotateY(0deg);
+
+			span {
+				right: 50px;
+				opacity: 1;
+				transform: rotate(0);
+			}
 		}
 	}
 }

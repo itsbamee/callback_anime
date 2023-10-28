@@ -39,6 +39,11 @@ button {
   margin-left: -75px;
   margin-top: -20px;
   cursor: pointer;
+  transition: opacity 0.5s;
+}
+button.off {
+  opacity: 0;
+  z-index: -1;
 }
 
 main {
@@ -86,9 +91,23 @@ main .con {
   transform: rotateY(230deg);
   transition: 1s;
 }
+main .con span {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  opacity: 0;
+  cursor: pointer;
+  transform: rotate(200deg);
+  transition: 0.5s 1s;
+}
 main .con.on {
   opacity: 1;
   transform: rotateY(0deg);
+}
+main .con.on span {
+  right: 50px;
+  opacity: 1;
+  transform: rotate(0);
 }
 
 /*# sourceMappingURL=style.css.map */
