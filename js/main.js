@@ -50,6 +50,7 @@ function panelOpen() {
 	);
 }
 
+//미션 - 닫기버튼 클릭시 con 먼저 fade out 처리 후 비동기적으로 top, right, left, bottom 한번에 선이 사라지고 다시 open 버튼이 보이도록
 function panelClose() {
 	conEl.classList.remove('on');
 
