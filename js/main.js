@@ -3,6 +3,7 @@ const [topEl, rightEl, bottomEl, leftEl, conEl] = main.children;
 const btn = document.querySelector('button');
 const speed = 500;
 const btnClose = conEl.querySelector('span');
+const delayed = convertSpeed(conEl);
 //먼저 필요한 함수 가져오기
 
 btn.addEventListener('click', panelOpen);
@@ -57,7 +58,13 @@ function panelClose() {
 	setTimeout(() => {
 		[leftEl, rightEl].forEach((el) => new Anime(el, { height: '0%' }, { duration: speed }));
 		[bottomEl, topEl].forEach((el) => new Anime(el, { width: '0%' }, { duration: speed }));
-	}, 1000);
+	}, delayed);
 
 	btn.classList.remove('off');
+}
+
+//css의 초를 milliscd로 문자값을 숫자로 변환해서 초 가져오기
+function convertSpeed(el) {
+	//parseFloat, parseInt는 문자값이 같이 있는 문자열이더라도 숫자로 시작되는 문자열이면 자동으로 숫자로 형변환처리 됨
+	return parseFloat(getComputedStyle(el).transitionDuration) * 1000;
 }
